@@ -1,0 +1,18 @@
+# Perform EDA tasks if required
+        analysis = ['analyze', 'analysis', 'analyse', 'data analysis']
+        if any(keyword in user_input.lower() for keyword in analysis):
+            # Upload and preprocess data
+            uploaded_file = st.file_uploader('Upload a CSV file', type=['csv'])
+            if uploaded_file:
+                data = pd.read_csv(uploaded_file)
+
+                # Display analysis results
+                st.subheader('Showing top 5 Rows')
+                st.write(data.head())
+
+                perform_eda(data)
+
+            else:
+                st.warning('Please upload a CSV file.')
+        else:
+            st.info('Please provide a query to perform analysis.')

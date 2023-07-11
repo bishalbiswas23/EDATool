@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPT-2 Chat Bot</title>
+</head>
+<body>
+    <h1>GPT-2 Chat Bot</h1>
+    <div>
+        <form method="POST" action="/chat">
+            <label for="user_input">You:</label>
+            <input type="text" id="user_input" name="user_input" autocomplete="off" autofocus>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <div>
+        {% if user_message %}
+            <p>You: {{ user_message }}</p>
+        {% endif %}
+        {% if bot_message %}
+            <p>Bot: {{ bot_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
